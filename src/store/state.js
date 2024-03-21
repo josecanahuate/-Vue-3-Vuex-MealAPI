@@ -1,5 +1,7 @@
 export default function() {
   return {
-    searchedMeals: []
+    searchedMeals: [],
+    mealsByLetter: [],
+    mealsByIngredient: [],
   };
 }

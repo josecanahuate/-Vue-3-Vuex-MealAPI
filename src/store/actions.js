@@ -10,3 +10,21 @@ export function searchMeals({ commit }, keyword) {
       console.error('Error searching meals by keyword:', error);
     });
 }
+
+export function searchMealsByLetter({ commit }, letter) {
+  axiosClient.get(`search.php?f=${letter}`)
+    .then(({ data }) => {
+      commit('setMealsByLetter', data.meals)
+    })
+    .catch(error => {
+      console.error('Error searching meals by letter:', error);
+    });
+}
+
+
+export function searchMealsByIngredient({ commit }, ing) {
+  axiosClient.get(`filter.php?i=${ing}`)
+    .then(({ data }) => {
+      commit('setMealsByIngredients', data.meals)
+    })
+}
